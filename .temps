@@ -1,0 +1,26 @@
+1) git init
+2) create out and src folder
+3) enter to the Prisma.io
+4) go to the typescript part of the prisma.io
+5) npm init -y
+6) npm install prisma typescript ts-node @types/node --save-dev
+7) open tsconfig.json file under the src and out folders
+8) write the following statements into tsconfig.json file
+            {
+                "compilerOptions": {
+                "sourceMap": true,
+                "outDir": "dist",
+                "rootDir" "src",
+                "strict": true,
+                "lib": ["esnext"],
+                "esModuleInterop": true
+                }
+            }
+9) npx prisma init
+10) open the .env file
+11) open the .gitignore file 
+12) write the .env and node_modules into the .gitignore
+13) create model in prisma
+14) change database URl in .env file
+15) create database '....'
+16) npx prisma  migrate dev --name 'your migrate name'
