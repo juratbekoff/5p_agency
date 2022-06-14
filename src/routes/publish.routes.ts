@@ -20,9 +20,10 @@ const upload = multer({ storage })
 
 
 router.post('/', upload.single('poster'), (req,res) => {
+    let file = req.file!
     let publish: publish = {
         id: 0,
-        image: req.body.file,
+        image: file.filename,
         title: req.body.title,
         sub_title: req.body.sub_title,
         message: req.body.message
@@ -31,7 +32,7 @@ router.post('/', upload.single('poster'), (req,res) => {
     publishService.publishMessage(publish)
         .then(published => res.send( { message: 'Your message has been sent!', published}))
         .catch(err => res.status(500).send(handlerError(err)))
-
+    
 })
 
 

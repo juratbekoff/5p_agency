@@ -19,9 +19,10 @@ var storage = multer_1["default"].diskStorage({
 });
 var upload = (0, multer_1["default"])({ storage: storage });
 router.post('/', upload.single('poster'), function (req, res) {
+    var file = req.file;
     var publish = {
         id: 0,
-        image: req.body.file,
+        image: file.filename,
         title: req.body.title,
         sub_title: req.body.sub_title,
         message: req.body.message
