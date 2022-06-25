@@ -2,6 +2,9 @@ import { message } from "@prisma/client";
 import { Router } from "express";
 import { handlerError } from "../utils/error.utils";
 import messageService from "../controllers/message.service";
+import TelegramBot from "node-telegram-bot-api"
+
+const bot = new TelegramBot(process.env.TOKEN!)
 
 const router = Router()
 
@@ -12,6 +15,12 @@ router.post('/', (req,res) => {
         companyName: req.body.companyName,
         phoneNumber: req.body.phoneNumber,
     }
+   
+    bot.sendMessage(process.env.ADMIN!,
+        "🔔Yangi Mijoz: \n" + 
+        '\n👤 F.I.O:  '+ message.name + "\n" + 
+        '🏢 Kompaniya:  '+ message.companyName+'\n'+ 
+        '☎️ Telefon:  '+ message.phoneNumber)
 
     messageService.messageSection(message)
         .then(messages => res.send( { message: 'Your message has been sent!', messages}))

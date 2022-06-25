@@ -38,36 +38,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var client_1 = require("@prisma/client");
 var client = new client_1.PrismaClient();
-function publishMessage(publish) {
+function CreateCarusel(carusel) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, client.publish.create({
+            return [2 /*return*/, client.carusel.create({
                     data: {
-                        image: publish.image,
-                        title: publish.title,
-                        sub_title: publish.sub_title,
-                        message: publish.message
+                        image: carusel.image,
+                        name: carusel.name,
+                        teamPosition: carusel.teamPosition
                     }
                 })];
         });
     });
 }
-function GetAllPublished() {
+function GetAllCreatedCarusels() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, client.publish.findMany()];
+            return [2 /*return*/, client.carusel.findMany()];
         });
     });
 }
-function UpdatePublishedById(incomingId, publish) {
+function UpdateCreatedCarusels(incomingId, carusel) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, client.publish.update({
+            return [2 /*return*/, client.carusel.update({
                     data: {
-                        image: publish.image,
-                        title: publish.title,
-                        sub_title: publish.sub_title,
-                        message: publish.message
+                        image: carusel.image,
+                        name: carusel.name,
+                        teamPosition: carusel.teamPosition
                     },
                     where: {
                         id: incomingId
@@ -76,19 +74,21 @@ function UpdatePublishedById(incomingId, publish) {
         });
     });
 }
-function DeletePublishMessage(id) {
+function DeleteCreatedCarusel(incomingId) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, client.publish["delete"]({
-                    where: { id: id }
+            return [2 /*return*/, client.carusel["delete"]({
+                    where: {
+                        id: incomingId
+                    }
                 })];
         });
     });
 }
 exports["default"] = {
-    publishMessage: publishMessage,
-    DeletePublishMessage: DeletePublishMessage,
-    GetAllPublished: GetAllPublished,
-    UpdatePublishedById: UpdatePublishedById
+    CreateCarusel: CreateCarusel,
+    GetAllCreatedCarusels: GetAllCreatedCarusels,
+    UpdateCreatedCarusels: UpdateCreatedCarusels,
+    DeleteCreatedCarusel: DeleteCreatedCarusel
 };
-//# sourceMappingURL=publish.service.js.map
+//# sourceMappingURL=carusel.service.js.map
