@@ -1,4 +1,4 @@
-import { message } from "@prisma/client";
+import { message, PrismaClient } from "@prisma/client";
 import { Router } from "express";
 import { handlerError } from "../utils/error.utils";
 import messageService from "../controllers/message.service";
