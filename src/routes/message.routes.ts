@@ -46,5 +46,4 @@ router.get('/findByName/:name', (req,res) => {
         .catch(err => res.status(500).send(handlerError(err)))  
 })
 
-
 export default router

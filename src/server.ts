@@ -14,6 +14,8 @@ app.use('/message', messageRoutes)
 app.use('/news', publishRoutes)
 app.use('/carusel', caruselRoutes )
 
-app.listen(process.env.PORT || 8085, () => {
+const PORT = process.env.PORT || 8085
+
+app.listen(PORT, () => {
     console.log('Server is running ...')
 })

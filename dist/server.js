@@ -15,7 +15,8 @@ app.use(express_1["default"].urlencoded({ extended: true }));
 app.use('/message', message_routes_1["default"]);
 app.use('/news', publish_routes_1["default"]);
 app.use('/carusel', carusel_routes_1["default"]);
-app.listen(process.env.PORT || 8085, function () {
+var PORT = process.env.PORT || 8085;
+app.listen(PORT, function () {
     console.log('Server is running ...');
 });
 //# sourceMappingURL=server.js.map
