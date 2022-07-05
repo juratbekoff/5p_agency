@@ -21,7 +21,13 @@ router.post('/', (req,res) => {
         '\n👤 F.I.O:  '+ message.name + "\n" + 
         '🏢 Kompaniya:  '+ message.companyName+'\n'+ 
         '☎️ Telefon:  '+ message.phoneNumber)
-
+    
+    bot.sendMessage(process.env.ADMIN_2!,
+        "🔔Yangi Mijoz: \n" + 
+        '\n👤 F.I.O:  '+ message.name + "\n" + 
+        '🏢 Kompaniya:  '+ message.companyName+'\n'+ 
+        '☎️ Telefon:  '+ message.phoneNumber)
+            
     messageService.messageSection(message)
         .then(messages => res.send( { message: 'Your message has been sent!', messages}))
         .catch(err => res.status(500).send(handlerError(err)))

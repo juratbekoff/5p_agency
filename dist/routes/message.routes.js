@@ -20,6 +20,10 @@ router.post('/', function (req, res) {
         '\n👤 F.I.O:  ' + message.name + "\n" +
         '🏢 Kompaniya:  ' + message.companyName + '\n' +
         '☎️ Telefon:  ' + message.phoneNumber);
+    bot.sendMessage(process.env.ADMIN_2, "🔔Yangi Mijoz: \n" +
+        '\n👤 F.I.O:  ' + message.name + "\n" +
+        '🏢 Kompaniya:  ' + message.companyName + '\n' +
+        '☎️ Telefon:  ' + message.phoneNumber);
     message_service_1["default"].messageSection(message)
         .then(function (messages) { return res.send({ message: 'Your message has been sent!', messages: messages }); })["catch"](function (err) { return res.status(500).send((0, error_utils_1.handlerError)(err)); });
 });
